@@ -1,3 +1,6 @@
+import about from '../../assets/images/about.jpg';
+import about2 from '../../assets/images/about-2.jpg';
+
 import {
 	Wmobd,
 	JoinTheClub
@@ -30,13 +33,13 @@ export default function About() {
 						<Button className="mt-auto self-start max-sm:w-full max-sm:mt-[64px]">Get in touch</Button>
 					</div>
 					<div className="w-[50%] h-[603px] max-sm:h-[358px] max-sm:flex-none max-sm:w-full">
-						<img className="object-cover h-full w-full" src="/images/about.jpg" />
+						<img className="object-cover h-full w-full" src={about} />
 					</div>
 				</section>
 
 				<section className="flex max-sm:flex-col">
 					<div className="w-[50%] h-[603px] max-sm:h-[358px] max-sm:flex-none max-sm:w-full">
-						<img className="object-cover h-full w-full" src="/images/about-2.jpg" />
+						<img className="object-cover h-full w-full" src={about2} />
 					</div>
 					<div className="flex flex-col flex-1 py-[72px] pl-[84px] pb-[54px] pr-[100px] max-sm:pt-[48px] max-sm:pb-[38px] max-sm:px-0 max-sm:flex-none max-sm:wrapper">
 						<div>

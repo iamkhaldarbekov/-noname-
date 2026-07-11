@@ -8,7 +8,7 @@ const jtcContainerVariants = cva(
 		variants: {
 			variant: {
 				default: "bg-lightgray pt-[52px] pb-[65px]",
-				withBg: "bg-[url(/images/join-the-club.jpg)] bg-cover bg-center pt-[97px] pb-[86px] max-sm:p-0"
+				withBg: "bg-[url(../assets/images/join-the-club.jpg)] bg-cover bg-center pt-[97px] pb-[86px] max-sm:p-0"
 			}
 		},
 		defaultVariants: {

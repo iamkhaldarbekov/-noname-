@@ -1,5 +1,10 @@
 import {motion} from 'motion/react';
 import {useNavigate} from 'react-router';
+import theDandyChair from '../../assets/images/the-dandy-chair.jpg';
+import theDandyChair2 from '../../assets/images/the-dandy-chair-2.jpg';
+import thePopularSofa from '../../assets/images/the-poplar-suede-sofa.jpg';
+import header from '../../assets/images/header.jpg';
+import about from '../../assets/images/about.jpg';
 
 import {
 	Button,
@@ -14,19 +19,19 @@ import {
 
 const ourPopular = [
 	{
-		img: "/images/the-poplar-suede-sofa.jpg",
+		img: thePopularSofa,
 		title: "The Poplar suede sofa",
 		price: 980,
 		wide: true
 	},
 	{
-		img: "/images/the-dandy-chair.jpg",
+		img: theDandyChair,
 		title: "The Dandy Chair",
 		price: 250,
 		wide: false
 	},
 	{
-		img: "/images/the-dandy-chair-2.jpg",
+		img: theDandyChair2,
 		title: "The Dandy Chair 2",
 		price: 250,
 		wide: false
@@ -56,7 +61,7 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="flex-1">
-						<img className="object-cover h-full w-full" src="/images/header.jpg" />
+						<img className="object-cover h-full w-full" src={header} />
 					</div>
 				</div>
 			</header>
@@ -126,7 +131,7 @@ export default function Home() {
 						</Button>
 					</div>
 					<div className="w-[50%] h-[603px] max-sm:h-[358px] max-sm:flex-none max-sm:w-full">
-						<img className="object-cover h-full w-full" src="/images/about.jpg" />
+						<img className="object-cover h-full w-full" src={about} />
 					</div>
 				</section>
 			</main>

@@ -27,7 +27,7 @@ const filters = {
 export default function Products() {
 	return (
 		<>
-			<header className="bg-[url(/images/products-header.jpg)] bg-cover bg-center pt-[123px] pb-[35px] max-sm:pt-[64px]">
+			<header className="bg-[url(../assets/images/products-header.jpg)] bg-cover bg-center pt-[123px] pb-[35px] max-sm:pt-[64px]">
 				<h1 className="wrapper text-[36px] text-white font-cd max-sm:text-center">All products</h1>
 			</header>
 

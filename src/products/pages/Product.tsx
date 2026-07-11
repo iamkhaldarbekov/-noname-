@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {useParams} from 'react-router';
-import {motion} from 'motion/react';
 
 import {
 	Button,
@@ -20,7 +19,6 @@ export default function Product() {
 	const product = products.find(el => nameToUrl(el.name) == id);
 	const addToCart = useStore(state => state.addToCart);
 	const [quantity, setQuantity] = useState<number>(1);
-	const [zoom, setZoom] = useState<boolean>(false);
 
 	function handleAddToCart() {
 		if (!product) return;
@@ -38,32 +36,12 @@ export default function Product() {
 	return (
 		<>
 			<header className="grid grid-cols-2 h-[760px] max-sm:grid-cols-1 max-sm:h-auto">
-					{!zoom && (
-						<motion.div
-							layoutId="zoom"
-							className="max-sm:h-[380px]"
-						>
-							<motion.img
-								layout
-								className="object-cover h-full cursor-pointer"
-								src={product.img}
-								onClick={() => setZoom(true)}
-							/>
-						</motion.div>
-					)}
-					{zoom && (
-						<motion.div
-							layoutId="zoom"
-							className="centered w-[80vw] z-50"
-						>
-							<motion.img
-								layout
-								className="object-cover h-full w-full cursor-pointer"
-								src={product.img}
-								onClick={() => setZoom(false)}
-							/>
-						</motion.div>
-					)}
+				<div className="overflow-hidden max-sm:h-[380px]">
+					<img
+						className="object-cover h-full w-full"
+						src={product.img}
+					/>
+				</div>
 				<div className="relative flex flex-col gap-y-[50px] pt-[90px] pl-[102px] pr-[40px] max-sm:wrapper max-sm:px-0 max-sm:gap-y-[28px]">
 					<div>
 						<h1 className="font-cd text-darkprimary text-[36px] max-sm:text-[24px]">{product.name}</h1>
