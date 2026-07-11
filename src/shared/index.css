@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: "Clash Display";
+	src: url("../assets/fonts/ClashDisplay-Regular.otf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Satoshi";
+	src: url("../assets/fonts/Satoshi-Regular.otf");
+	font-weight: 400;
+}
+
+@theme {
+	--font-cd: "Clash Display";
+	--font-satoshi: "Satoshi";
+
+	--color-darkprimary: #2A254B;
+	--color-primary: #4E4D93;
+	--color-lightgray: #F9F9F9;
+	--color-bordergray: #EBE8F4;
+	--color-borderdark: #CAC6DA;
+
+	--breakpoint-sm: 1440px;
+}
+
+#root {
+	@apply font-satoshi text-darkprimary mx-auto max-w-[1440px] max-sm:max-w-[390px];
+}
+
+@utility wrapper {
+	@apply mx-auto max-w-[1280px] max-sm:max-w-[342px];
+}
+
+@utility cart-wrapper {
+	@apply mx-auto max-w-[1140px] max-sm:max-w-[342px];
+}
+
+@utility centered {
+	@apply absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%];
+}
