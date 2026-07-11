@@ -3,33 +3,6 @@ import {motion} from 'motion/react';
 import {Card, Checkbox, Dropdown} from '../../shared/components';
 import {products} from '../../utils/products';
 
-const suggestions = [
-	{
-		img: "/images/the-dandy-chair.jpg",
-		title: "The Dandy chair",
-		price: "250",
-		wide: false
-	},
-	{
-		img: "/images/rustic-vase-set.jpg",
-		title: "Rustic Vase Set",
-		price: "155",
-		wide: false
-	},
-	{
-		img: "/images/the-silky-vase.jpg",
-		title: "The Silky Vase",
-		price: "125",
-		wide: false
-	},
-	{
-		img: "/images/the-lucy-lamp.jpg",
-		title: "The Lucy Lamp",
-		price: "399",
-		wide: false
-	}
-]
-
 const filters = {
 	productTypes: [
 		"Furniture",

@@ -16,19 +16,19 @@ const ourPopular = [
 	{
 		img: "/images/the-poplar-suede-sofa.jpg",
 		title: "The Poplar suede sofa",
-		price: "980",
+		price: 980,
 		wide: true
 	},
 	{
 		img: "/images/the-dandy-chair.jpg",
 		title: "The Dandy Chair",
-		price: "250",
+		price: 250,
 		wide: false
 	},
 	{
 		img: "/images/the-dandy-chair-2.jpg",
 		title: "The Dandy Chair 2",
-		price: "250",
+		price: 250,
 		wide: false
 	}
 ]

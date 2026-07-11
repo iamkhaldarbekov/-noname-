@@ -5,7 +5,7 @@ import {nameToUrl} from '../../utils/nameToUrl';
 type CardProps = {
 	img: string;
 	title: string;
-	price: string;
+	price: number;
 	wide?: boolean;
 }
 

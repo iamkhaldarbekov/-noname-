@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useParams} from 'react-router';
-import {motion, AnimatePresence} from 'motion/react';
+import {motion} from 'motion/react';
 
 import {
 	Button,
