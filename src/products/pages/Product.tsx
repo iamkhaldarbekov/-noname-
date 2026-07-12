@@ -30,7 +30,11 @@ export default function Product() {
 	}
 
 	if (!product) {
-		return <p className="text-4xl font-bold mx-auto mt-20">not found...</p>
+		return (
+			<div className="flex-1 relative">
+				<p className="centered font-cd text-2xl text-darkprimary">Not found...</p>
+			</div>
+		)
 	}
 
 	return (
@@ -51,7 +55,7 @@ export default function Product() {
 					<div>
 						<p className="font-cd text-darkprimary">Description</p>
 						<div className="text-[#505977]">
-							<p>A timeless design, with premium materials features as one of our most popular and iconic pieces. The dandy chair is perfect for any stylish living space with beech legs and lambskin leather upholstery.</p>
+							<p>A timeless design, with premium materials features as one of our most popular and iconic pieces. {product.name} is perfect for any stylish living space with beech legs and lambskin leather upholstery.</p>
 							<ul className="mt-[20px] pl-2 list-disc list-inside">
 								<li>Premium material</li>
 								<li>Handmade upholstery</li>
@@ -82,6 +86,7 @@ export default function Product() {
 						<p className="font-cd text-darkprimary">Amount:</p>
 						<Stepper
 							className="max-sm:w-full"
+							value={quantity}
 							onChange={(quantity) => setQuantity(quantity)}
 						/>
 					</div>

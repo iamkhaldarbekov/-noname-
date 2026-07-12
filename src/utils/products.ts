@@ -11,6 +11,8 @@ type Product = {
 	name: string;
 	price: number;
 	wide: boolean;
+	type: "furniture" | "homeware" | "sofas" | "light fittings";
+	designer: "Robert Smith" | "Liam Gallagher" | "Biggie Smalls" | "Thom Yorke";
 }
 
 export const products: Product[] = [
@@ -18,42 +20,56 @@ export const products: Product[] = [
 		img: theDandyChair,
 		name: "The Dandy Chair",
 		price: 250,
-		wide: false
+		wide: false,
+		type: "furniture",
+		designer: "Liam Gallagher"
 	},
 	{
 		img: rusticVaseSet,
 		name: "Rustic Vase Set",
 		price: 155,
-		wide: false
+		wide: false,
+		type: "homeware",
+		designer: "Thom Yorke"
 	},
 	{
 		img: theSilkyVase,
 		name: "The Silky Vase",
 		price: 125,
-		wide: false
+		wide: false,
+		type: "homeware",
+		designer: "Thom Yorke"
 	},
 	{
 		img: theLucyLamp,
 		name: "The Lucy Lamp",
 		price: 399,
-		wide: false
+		wide: false,
+		type: "light fittings",
+		designer: "Robert Smith"
 	},
 	{
 		img: thePoplarSofa,
 		name: "The Poplar suede sofa",
 		price: 980,
-		wide: true
+		wide: true,
+		type: "sofas",
+		designer: "Biggie Smalls"
 	},
 	{
 		img: theDandyChair3,
 		name: "The Dandy Chair 3",
 		price: 250,
-		wide: false
+		wide: false,
+		type: "furniture",
+		designer: "Liam Gallagher"
 	},
 	{
 		img: theDandyChair2,
 		name: "The Dandy Chair 2",
 		price: 250,
-		wide: false
+		wide: false,
+		type: "furniture",
+		designer: "Liam Gallagher"
 	}
 ]
