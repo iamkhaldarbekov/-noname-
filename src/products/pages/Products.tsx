@@ -1,10 +1,12 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {motion} from 'motion/react';
+import {useLocation} from 'react-router';
 
 import {Card, Checkbox, Dropdown} from '../../shared/components';
 import {products} from '../../utils/products';
 
 export default function Products() {
+	const location = useLocation();
 	const [filteredProducts, setFilteredProducts] = useState(products);
 	const [prices, setPrices] = useState([
 		{value: "0 - 100", enabled: false},
@@ -23,6 +25,12 @@ export default function Products() {
 		{value: "Sofas", enabled: false},
 		{value: "Light fittings", enabled: false}
 	])
+
+	useEffect(() => {
+		filter();
+	}, [productTypes, designers, prices])
+
+	useEffect(() => changeProductTypes(location.state, true), []);
 
 	function filter() {
 		const productTypesEnabled = productTypes.some(el => el.enabled);
@@ -85,8 +93,6 @@ export default function Products() {
 
 			return el;
 		}))
-
-		filter();
 	}
 
 	function changePrices(value: string, enabled: boolean) {
@@ -95,8 +101,6 @@ export default function Products() {
 
 			return el;
 		}))
-
-		filter();
 	}
 
 	function changeProductTypes(value: string, enabled: boolean) {
@@ -105,8 +109,6 @@ export default function Products() {
 
 			return el;
 		}))
-
-		filter();
 	}
 	
 	return (

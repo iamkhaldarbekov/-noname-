@@ -7,13 +7,10 @@ import User from '../../assets/icons/user.svg?react';
 import Menu from '../../assets/icons/menu.svg?react';
 
 const links: string[] = [
-	"Plant pots",
-	"Ceramics",
-	"Tables",
-	"Chairs",
-	"Crockery",
-	"Tableware",
-	"Cutlery"
+	"Furniture",
+	"Homeware",
+	"Sofas",
+	"Light fittings"
 ]
 
 export default function Nav() {
@@ -31,7 +28,7 @@ export default function Nav() {
 							onMouseOver={() => setHoveredLink(link)}
 							key={index}
 						>
-							<Link to="#">{link}</Link>
+							<Link to="/products" state={link}>{link}</Link>
 							{hoveredLink == link && (
 								<motion.div
 									layoutId="underline"

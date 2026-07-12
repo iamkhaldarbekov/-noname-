@@ -15,12 +15,10 @@ const menu = [
 ]
 
 const categories = [
-	"Crockery",
 	"Furniture",
 	"Homeware",
-	"Play pots",
-	"Chairs",
-	"Crockery"
+	"Sofas",
+	"Light fittings"
 ]
 
 const ourCompany = [
@@ -73,7 +71,8 @@ export default function Footer() {
 							<p className="font-cd text-white">Categories</p>
 							{categories.map((link, index) => (
 								<Link
-									to="#"
+									to="/products"
+									state={link}
 									className="text-[14px] text-white hover:underline"
 									key={index}
 								>
