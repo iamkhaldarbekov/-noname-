@@ -5,6 +5,7 @@ import CheckboxIcon from '../../assets/icons/checkbox.svg?react';
 type CheckboxProps = {
 	onChange?: (checked: boolean) => void;
 	children: any;
+	value?: boolean;
 }
 
 const checkboxVariants = cva(
@@ -24,9 +25,10 @@ const checkboxVariants = cva(
 
 export default function Checkbox({
 	onChange,
-	children
+	children,
+	value = false
 }: CheckboxProps) {
-	const [checked, setChecked] = useState<boolean>(false);
+	const [checked, setChecked] = useState<boolean>(value);
 
 	function controlChecked(value: boolean) {
 		setChecked(value);

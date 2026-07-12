@@ -44,7 +44,7 @@ export default function Cart() {
 										</div>
 									</div>
 									<Stepper
-										initialValue={el.quantity}
+										value={el.quantity}
 										onChange={(quantity) => changeQuantity(el.name, quantity)}
 										className="justify-self-center"
 									/>
@@ -63,7 +63,7 @@ export default function Cart() {
 										<p className="text-[14px]">A timeless ceramic vase with a tri color grey glaze.</p>
 										<p>£{el.price}</p>
 										<Stepper
-											initialValue={el.quantity}
+											value={el.quantity}
 											onChange={(quantity) => changeQuantity(el.name, quantity)}
 											className="mt-auto"
 										/>

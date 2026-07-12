@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {motion, AnimatePresence} from 'motion/react';
 import {clsx} from 'clsx';
 
 type StepperProps = {
 	onChange?: (quantity: number) => void;
-	initialValue?: number;
+	value?: number;
 	min?: number;
 	max?: number;
 	className?: any;
@@ -13,15 +13,13 @@ type StepperProps = {
 export default function Stepper(
 	{
 		onChange,
-		initialValue = 1,
+		value = 1,
 		min = 1,
 		max,
 		className
 	}: StepperProps
 ) {
-	const [quantity, setQuantity] = useState<number>(initialValue);
-
-	useEffect(() => onChange && onChange(quantity), []);
+	const [quantity, setQuantity] = useState<number>(value);
 
 	function controlQuantity(value: number) {
 		setQuantity(value);
