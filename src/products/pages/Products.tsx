@@ -138,7 +138,7 @@ export default function Products() {
 								<div className="flex flex-col gap-y-[12px] mt-[20px]">
 									{prices.map((el, index) => (
 										<Checkbox
-											onChange={(v) => changeProductTypes(el.value, v)}
+											onChange={(v) => changePrices(el.value, v)}
 											value={el.enabled}
 											key={index}
 										>
@@ -152,7 +152,7 @@ export default function Products() {
 								<div className="flex flex-col gap-y-[12px] mt-[20px]">
 									{designers.map((el, index) => (
 										<Checkbox
-											onChange={(v) => changeProductTypes(el.value, v)}
+											onChange={(v) => changeDesigners(el.value, v)}
 											value={el.enabled}
 											key={index}
 										>
@@ -235,7 +235,8 @@ export default function Products() {
 						</div>
 						:
 						<div className="relative w-full">
-							<p className="centered font-cd text-2xl text-darkprimary">No products found using this filters...</p>
+							<p className="centered font-cd text-2xl text-darkprimary max-sm:hidden">No products found using this filters...</p>
+							<p className="hidden font-cd text-2xl text-darkprimary max-sm:block">No products found using this filters...</p>
 						</div>
 					}
 				</div>

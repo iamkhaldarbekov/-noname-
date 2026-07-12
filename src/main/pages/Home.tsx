@@ -75,7 +75,12 @@ export default function Home() {
 						with nice fonts, tasteful colors and a beautiful way to display things digitally 
 						using modern web technologies.
 					</p>
-					<Button className="mt-[32px] w-full">View collection</Button>
+					<Button
+						className="mt-[32px] w-full"
+						onClick={() => navigate("/products")}
+					>
+						View collection
+					</Button>
 				</div>
 			</header>
 

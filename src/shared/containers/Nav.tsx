@@ -62,9 +62,9 @@ export default function Nav() {
 						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
 							<Search className="w-[16px] h-[16px]" />
 						</button>
-						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
+						<Link to="/cart" className="cursor-pointer duration-100 hover:opacity-[0.8]">
 							<Cart className="w-[16px] h-[16px]" />
-						</button>
+						</Link>
 						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
 							<User className="w-[16px] h-[16px]" />
 						</button>
