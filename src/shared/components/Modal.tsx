@@ -26,9 +26,9 @@ export default function Modal({
 					<div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
 						<div className="flex flex-col gap-y-4 bg-white p-5 min-w-[500px]">
 							{title &&
-								<p className="font-semibold text-2xl">{title}</p>
+								<p className="font-semibold text-2xl border-b-[1px] border-bordergray pb-4">{title}</p>
 							}
-							<div>
+							<div className="max-h-[70vh] overflow-y-auto">
 								{children}
 							</div>
 							<Button
