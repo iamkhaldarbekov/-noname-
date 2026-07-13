@@ -237,8 +237,8 @@ export default function Products() {
 						</div>
 						:
 						<div className="relative w-full">
-							<p className="centered font-cd text-2xl text-darkprimary max-sm:hidden">No products found using this filters...</p>
-							<p className="hidden font-cd text-2xl text-darkprimary max-sm:block">No products found using this filters...</p>
+							<p className="centered font-cd text-2xl text-darkprimary max-sm:hidden">No products found using these filters...</p>
+							<p className="hidden font-cd text-2xl text-darkprimary max-sm:block">No products found using these filters...</p>
 						</div>
 					}
 				</div>
