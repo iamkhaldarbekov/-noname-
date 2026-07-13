@@ -1,8 +1,10 @@
+import {useState} from 'react';
 import {Link} from 'react-router';
 
 import {
 	Stepper,
-	Button
+	Button,
+	Modal
 } from '../../shared/components';
 import {useStore} from '../../shared/store';
 import {nameToUrl} from '../../utils/nameToUrl';
@@ -10,11 +12,18 @@ import {nameToUrl} from '../../utils/nameToUrl';
 export default function Cart() {
 	const cart = useStore(state => state.cart);
 	const changeQuantity = useStore(state => state.changeQuantity);
+	const reset = useStore(state => state.reset);
+	const [modal, setModal] = useState(false);
 
 	function getSubtotal() {
 		return cart.reduce((acc, item) => (
 			acc + item.quantity * item.price
 		), 0)
+	}
+
+	function handlePurchase() {
+		reset();
+		setModal(false);
 	}
 	
 	return (
@@ -84,6 +93,7 @@ export default function Cart() {
 							<Button
 								variant="dark"
 								className="mt-[16px] max-sm:w-full"
+								onClick={() => setModal(true)}
 							>
 								Go to checkout
 							</Button>
@@ -95,6 +105,14 @@ export default function Cart() {
 					</div>
 				}
 			</main>
+
+			<Modal
+				title="Purchase completed"
+				visible={modal}
+				onClose={() => handlePurchase()}
+			>
+				<p>Thanks for buying our products for £{getSubtotal()}!</p>
+			</Modal>
 		</>
 	)
 }

@@ -12,6 +12,7 @@ type StoreState = {
 	cart: Item[];
 	addToCart: (item: Item) => void;
 	changeQuantity: (name: string, quantity: number) => void;
+	reset: () => void;
 }
 
 export const useStore = create<StoreState>()(set => ({
@@ -36,5 +37,6 @@ export const useStore = create<StoreState>()(set => ({
 		cart: state.cart.map(el => (
 			el.name == name ? {...el, quantity} : el
 		))
-	}))
+	})),
+	reset: () => set({cart: []})
 }))
