@@ -1,8 +1,11 @@
+import {Link} from 'react-router';
+
 import {
 	Stepper,
 	Button
 } from '../../shared/components';
 import {useStore} from '../../shared/store';
+import {nameToUrl} from '../../utils/nameToUrl';
 
 export default function Cart() {
 	const cart = useStore(state => state.cart);
@@ -38,7 +41,7 @@ export default function Cart() {
 											<img className="object-cover h-full w-full" src={el.img} />
 										</div>
 										<div className="flex flex-col gap-y-[8px]">
-											<p className="font-cd text-[20px]">{el.name}</p>
+											<Link to={`/products/${nameToUrl(el.name)}`} className="font-cd text-[20px] hover:underline">{el.name}</Link>
 											<p className="text-[14px]">A timeless ceramic vase with a tri color grey glaze.</p>
 											<p>£{el.price}</p>
 										</div>

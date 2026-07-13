@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useParams} from 'react-router';
+import {useParams, useNavigate} from 'react-router';
 import {motion, AnimatePresence} from 'motion/react';
 
 import {
@@ -16,6 +16,7 @@ import {nameToUrl} from '../../utils/nameToUrl'
 import {useStore} from '../../shared/store';
 
 export default function Product() {
+	const navigate = useNavigate();
 	const {id} = useParams();
 	const product = products.find(el => nameToUrl(el.name) == id);
 	const addToCart = useStore(state => state.addToCart);
@@ -29,6 +30,8 @@ export default function Product() {
 			...product,
 			quantity
 		})
+
+		navigate("/cart");
 	}
 
 	if (!product) {
