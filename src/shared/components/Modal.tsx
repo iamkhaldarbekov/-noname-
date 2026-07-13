@@ -3,7 +3,7 @@ import {Button} from '../components';
 
 type ModalProps = {
 	children: any;
-	title: string;
+	title?: string;
 	visible: boolean;
 	onClose: (value: boolean) => void;
 }
@@ -24,14 +24,16 @@ export default function Modal({
 					className="fixed left-0 top-0 w-full h-full bg-black/[0.4] backdrop-blur-xs"
 				>
 					<div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-						<div className="bg-white p-5 min-w-[500px]">
-							<p className="font-semibold text-2xl">{title}</p>
-							<div className="mt-4">
+						<div className="flex flex-col gap-y-4 bg-white p-5 min-w-[500px]">
+							{title &&
+								<p className="font-semibold text-2xl">{title}</p>
+							}
+							<div>
 								{children}
 							</div>
 							<Button
 								variant="dark"
-								className="block mt-4 ml-auto"
+								className="ml-auto"
 								onClick={() => onClose(false)}
 							>
 								Close
