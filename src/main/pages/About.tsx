@@ -5,7 +5,6 @@ import {
 	Wmobd,
 	JoinTheClub
 } from '../../shared/containers';
-import {Button} from '../../shared/components';
 
 export default function About() {
 	return (
@@ -30,7 +29,6 @@ export default function About() {
 								Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.
 							</p>
 						</div>
-						<Button className="mt-auto self-start max-sm:w-full max-sm:mt-[64px]">Get in touch</Button>
 					</div>
 					<div className="w-[50%] h-[603px] max-sm:h-[358px] max-sm:flex-none max-sm:w-full">
 						<img className="object-cover h-full w-full" src={about} />
@@ -51,7 +49,6 @@ export default function About() {
 								Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.
 							</p>
 						</div>
-						<Button className="mt-auto self-start max-sm:w-full max-sm:mt-[64px]">Get in touch</Button>
 					</div>
 				</section>
 
