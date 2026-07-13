@@ -6,8 +6,6 @@ import Cart from '../../assets/icons/cart.svg?react';
 import User from '../../assets/icons/user.svg?react';
 import Menu from '../../assets/icons/menu.svg?react';
 
-import {Modal} from '../components';
-
 const links: string[] = [
 	"Furniture",
 	"Homeware",
@@ -17,7 +15,6 @@ const links: string[] = [
 
 export default function Nav() {
 	const [hoveredLink, setHoveredLink] = useState("");
-	const [searchModal, setSearchModal] = useState(true);
 
 	return (
 		<>
@@ -74,14 +71,6 @@ export default function Nav() {
 					</div>
 				</div>
 			</nav>
-
-			<Modal
-				// title="Search"
-				visible={searchModal}
-				onClose={setSearchModal}
-			>
-				asdf
-			</Modal>
 		</>
 	)
 }
