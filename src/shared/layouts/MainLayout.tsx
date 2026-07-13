@@ -11,10 +11,14 @@ import {
 export default function MainLayout() {
 	const blocker = useBlocker(() => !loader);
 	const [loader, setLoader] = useState(true);
+	const [firstLoad, setFirstLoad] = useState(true);
 	let timer: number | undefined;
 
 	useEffect(() => {
-		setTimeout(() => setLoader(false), 1500)
+		setTimeout(() => {
+			setLoader(false);
+			setFirstLoad(false);
+		}, 1000);
 	}, []);
 
 	useEffect(() => {
@@ -41,7 +45,7 @@ export default function MainLayout() {
 			<AnimatePresence>
 				{loader && (
 					<motion.div
-						initial={{y: "-100%"}}
+						initial={!firstLoad && {y: "-100%"}}
 						animate={{y: 0}}
 						exit={{y: "100%"}}
 						transition={{duration: 1, ease: "anticipate"}}
@@ -49,7 +53,12 @@ export default function MainLayout() {
 					>
 						<motion.p
 							animate={{scale: 1.3}}
-							transition={{delay: 1}}
+							transition={
+								!firstLoad ?
+								{delay: 1}
+								:
+								{delay: 0.5}
+							}
 							className="centered text-darkprimary text-4xl font-bold"
 						>
 							[noname]
