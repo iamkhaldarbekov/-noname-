@@ -9,7 +9,6 @@ import Pinterest from '../../assets/icons/pinterest.svg?react';
 const menu = [
 	"New arrivals",
 	"Best sellers",
-	"Recently viewed",
 	"Popular this week",
 	"All products"
 ]
@@ -22,11 +21,10 @@ const categories = [
 ]
 
 const ourCompany = [
-	"About us",
-	"Vacancies",
-	"Contact us",
-	"Privacy",
-	"Returns policy"
+	{
+		name: "About us",
+		link: "/about"
+	}
 ]
 
 export default function Footer() {
@@ -46,12 +44,24 @@ export default function Footer() {
 					<div>
 						<p className="font-cd text-white">Social links</p>
 						<div className="mt-[22px] flex gap-x-[24px] items-center">
-							<LinkedIn />
-							<Facebook />
-							<Instagram />
-							<Skype />
-							<Twitter />
-							<Pinterest />
+							<a href="https://linkedin.com" target="_blank">
+								<LinkedIn />
+							</a>
+							<a href="https://facebook.com" target="_blank">
+								<Facebook />
+							</a>
+							<a href="https://instagram.com" target="_blank">
+								<Instagram />
+							</a>
+							<a href="https://skype.com" target="_blank">
+								<Skype />
+							</a>
+							<a href="https://twitter.com" target="_blank">
+								<Twitter />
+							</a>
+							<a href="https://pinterest.com" target="_blank">
+								<Pinterest />
+							</a>
 						</div>
 					</div>
 					<div className="flex gap-x-[100px]">
@@ -59,7 +69,7 @@ export default function Footer() {
 							<p className="font-cd text-white">Menu</p>
 							{menu.map((link, index) => (
 								<Link
-									to="#"
+									to="/products"
 									className="text-[14px] text-white hover:underline"
 									key={index}
 								>
@@ -82,13 +92,13 @@ export default function Footer() {
 						</div>
 						<div className="flex flex-col gap-y-[12px]">
 							<p className="font-cd text-white">Our Company</p>
-							{ourCompany.map((link, index) => (
+							{ourCompany.map((el, index) => (
 								<Link
-									to="#"
+									to={el.link}
 									className="text-[14px] text-white hover:underline"
 									key={index}
 								>
-									{link}
+									{el.name}
 								</Link>
 							))}
 						</div>
