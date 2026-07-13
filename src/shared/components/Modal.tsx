@@ -24,9 +24,9 @@ export default function Modal({
 					className="fixed left-0 top-0 w-full h-full bg-black/[0.4] backdrop-blur-xs"
 				>
 					<div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-						<div className="flex flex-col gap-y-4 bg-white p-5 min-w-[500px]">
+						<div className="flex flex-col gap-y-4 bg-white p-5 min-w-[50vw] max-w-[80vw]">
 							{title &&
-								<p className="font-semibold text-2xl border-b-[1px] border-bordergray pb-4">{title}</p>
+								<p className="font-semibold text-2xl border-b-[1px] border-bordergray pb-4 max-sm:text-lg">{title}</p>
 							}
 							<div className="max-h-[70vh] overflow-y-auto">
 								{children}
