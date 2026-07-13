@@ -5,6 +5,7 @@ import Input from './Input';
 import Stepper from './Stepper';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
+import Modal from './Modal';
 
 export {
 	Button,
@@ -13,5 +14,6 @@ export {
 	Input,
 	Stepper,
 	Checkbox,
-	Dropdown
+	Dropdown,
+	Modal
 }

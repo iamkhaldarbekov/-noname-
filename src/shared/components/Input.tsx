@@ -23,6 +23,7 @@ export default function Input({
 	className,
 	buttonText,
 	variant = "light",
+	onDone,
 	...props
 }: any) {
 	return (
@@ -31,7 +32,12 @@ export default function Input({
 				className={twMerge(clsx(inputVariants({variant}), className))}
 				{...props}
 			/>
-			<Button variant={variant}>{buttonText}</Button>
+			<Button
+				variant={variant}
+				onClick={onDone}
+			>
+				{buttonText}
+			</Button>
 		</div>
 	)
 }
