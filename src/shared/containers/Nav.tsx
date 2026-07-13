@@ -1,10 +1,10 @@
 import {useState} from 'react';
-import {motion} from 'motion/react';
+import {motion, AnimatePresence} from 'motion/react';
 import {Link} from 'react-router';
-import Search from '../../assets/icons/search.svg?react';
 import Cart from '../../assets/icons/cart.svg?react';
-import User from '../../assets/icons/user.svg?react';
 import Menu from '../../assets/icons/menu.svg?react';
+
+import {Button} from '../components';
 
 const links: string[] = [
 	"Furniture",
@@ -15,6 +15,7 @@ const links: string[] = [
 
 export default function Nav() {
 	const [hoveredLink, setHoveredLink] = useState("");
+	const [burger, setBurger] = useState(false);
 
 	return (
 		<>
@@ -24,7 +25,7 @@ export default function Nav() {
 				<div className="flex gap-x-[44px] items-center">
 					{links.map((link, index) => (
 						<div
-							className="group relative"
+							className="relative"
 							onMouseOver={() => setHoveredLink(link)}
 							key={index}
 						>
@@ -39,15 +40,9 @@ export default function Nav() {
 					))}
 				</div>
 				<div className="flex items-center gap-x-[16px]">
-					<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
-						<Search className="w-[16px] h-[16px]" />
-					</button>
 					<Link to="/cart" className="duration-100 hover:opacity-[0.8]">
 						<Cart className="w-[16px] h-[16px]" />
 					</Link>
-					<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
-						<User className="w-[16px] h-[16px]" />
-					</button>
 				</div>
 			</nav>
 
@@ -56,21 +51,51 @@ export default function Nav() {
 				<div className="flex py-[20px] justify-between">
 					<Link to="/" className="font-cd text-[24px] color-[#22202E]">[noname]</Link>
 					<div className="flex items-center gap-x-[20px]">
-						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
-							<Search className="w-[16px] h-[16px]" />
-						</button>
 						<Link to="/cart" className="cursor-pointer duration-100 hover:opacity-[0.8]">
 							<Cart className="w-[16px] h-[16px]" />
 						</Link>
-						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
-							<User className="w-[16px] h-[16px]" />
-						</button>
-						<button className="cursor-pointer duration-100 hover:opacity-[0.8]">
+						<button
+							className="cursor-pointer duration-100 hover:opacity-[0.8]"
+							onClick={() => setBurger(true)}
+						>
 							<Menu className="w-[16px] h-[16px]" />
 						</button>
 					</div>
 				</div>
 			</nav>
+
+			<AnimatePresence>
+				{burger && (
+					<motion.div
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+						className="fixed top-0 left-0 bg-white w-full h-full"
+					>
+						<div className="wrapper py-5">
+							<p className="font-cd text-lg">Menu</p>
+							<div className="mt-2 flex flex-col gap-y-1">
+								{links.map((link, index) => (
+									<Link
+										to="/products"
+										state={link}
+										key={index}
+									>
+										{link}
+									</Link>
+								))}
+								<Button
+									className="mt-5"
+									variant="dark"
+									onClick={() => setBurger(false)}
+								>
+									Close
+								</Button>
+							</div>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }
