@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useParams} from 'react-router';
+import {motion, AnimatePresence} from 'motion/react';
 
 import {
 	Button,
@@ -19,6 +20,7 @@ export default function Product() {
 	const product = products.find(el => nameToUrl(el.name) == id);
 	const addToCart = useStore(state => state.addToCart);
 	const [quantity, setQuantity] = useState<number>(1);
+	const [show, setShow] = useState(false);
 
 	function handleAddToCart() {
 		if (!product) return;
@@ -40,12 +42,22 @@ export default function Product() {
 	return (
 		<>
 			<header className="grid grid-cols-2 h-[760px] max-sm:grid-cols-1 max-sm:h-auto">
-				<div className="overflow-hidden max-sm:h-[380px]">
-					<img
-						className="object-cover h-full w-full"
-						src={product.img}
-					/>
-				</div>
+				{!show ? (
+					<motion.div
+						layoutId="container"
+						className="overflow-hidden max-sm:h-[380px]"
+						onClick={() => setShow(true)}
+					>
+						<motion.img
+							layoutId="image"
+							className="min-w-full min-h-full"
+							src={product.img}
+						/>
+					</motion.div>
+				)
+				:
+					<div />
+				}
 				<div className="relative flex flex-col gap-y-[50px] pt-[90px] pl-[102px] pr-[40px] max-sm:wrapper max-sm:px-0 max-sm:gap-y-[28px]">
 					<div>
 						<h1 className="font-cd text-darkprimary text-[36px] max-sm:text-[24px]">{product.name}</h1>
@@ -106,6 +118,28 @@ export default function Product() {
 				<Wmobd />
 				<JoinTheClub />
 			</main>
+
+			<AnimatePresence>
+				{show && (
+					<motion.div
+						initial={{background: "rgba(0,0,0,0)"}}
+						animate={{background: "rgba(0,0,0,0.5)"}}
+						exit={{background: "rgba(0,0,0,0)"}}
+						className="fixed top-0 left-0 w-full h-full"
+						onClick={() => setShow(false)}
+					>
+						<motion.div
+							layoutId="container"
+							className="centered overflow-hidden max-w-[80vw] max-h-[80vh]"
+						>
+							<motion.img
+								layoutId="image"
+								src={product.img}
+							/>
+						</motion.div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }
